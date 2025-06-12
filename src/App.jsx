@@ -11,7 +11,7 @@ function Header({ name, year }) {
 }
 
 // TODO: This can get more complex and in its own file soon
-const cables = [
+const cableCollection = [
   "USB-c to USB-A Adapter",
   "USB mini-B to USB-A Adapter",
   "USB-C to USB-B Adapter",
@@ -20,7 +20,7 @@ const cables = [
   "Micro USB to Lightning Cable"
 ]
 
-const cableObjects = cables.map((item, index) => ({
+const cableObjects = cableCollection.map((item, index) => ({
   id: index,
   title: item
 }))
@@ -37,7 +37,7 @@ function CableItem() {
 
 }
 
-function Main({ Cables }) {
+function Main({ cables }) {
   return (
     <>
       <div>
@@ -45,13 +45,13 @@ function Main({ Cables }) {
       </div>
       <main>
         <ul>
-          {items.map((item) => (
+          {cables.map((cable) => (
             <li
-              key={item.id}
+              key={cable.id}
               style={{ listStyleType: "none" }}
               className="list-item"
             >
-              {item.title}
+              {cable.title}
             </li>
           ))}
         </ul>
@@ -64,7 +64,7 @@ function App() {
   return (
     <>
       <Header name="Casey" year={new Date().getFullYear()} />
-      <Main items={cableObjects} />
+      <Main cables={cableObjects} />
     </>
   )
 }
