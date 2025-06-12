@@ -1,18 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
+// TODO: Make the header more interesting
 function Header({ name, year }) {
   return (
     <header className="">
-      <h1>{name}'s Tech Inventory </h1>
+      <h1>{name}'s Cable Tech Inventory </h1>
       <p className="font-light">Version {year}.0</p>
     </header>
   )
 }
 
-const items = [
+// TODO: This can get more complex and in its own file soon
+const cables = [
   "USB-c to USB-A Adapter",
   "USB mini-B to USB-A Adapter",
   "USB-C to USB-B Adapter",
@@ -21,12 +20,24 @@ const items = [
   "Micro USB to Lightning Cable"
 ]
 
-const itemObjects = items.map((item, index) => ({
+const cableObjects = cables.map((item, index) => ({
   id: index,
   title: item
 }))
 
-function Main({ items }) {
+function CableList() {
+
+}
+
+function CableForm() {
+
+}
+
+function CableItem() {
+
+}
+
+function Main({ Cables }) {
   return (
     <>
       <div>
@@ -50,32 +61,10 @@ function Main({ items }) {
 }
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <Header name="Casey" year={new Date().getFullYear()} />
-      <Main items={itemObjects} />
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Main items={cableObjects} />
     </>
   )
 }
