@@ -1,10 +1,24 @@
 import "./App.css";
-import { useState } from "react";
+import React, { useState } from "react";
+import CableFormElement from './CableForm';
+
+// Define the type for our cable data
+interface CableData {
+  connectorSideA: string;
+  connectorSideB: string;
+  spec: string;
+  length: number;
+  color: string;
+  sheathMaterial: string;
+  shielded: boolean;
+  maxDataTransferRate: string;
+  maxChargeWattage: number;
+}
 
 // TODO: Make the header more interesting
 function Header({ name, year }) {
   return (
-    <header className="">
+    <header className="flex flex-row justify-between mb-10">
       <h1>{name}'s Cable Tech Inventory </h1>
       <p className="font-light">Version {year}.0</p>
     </header>
